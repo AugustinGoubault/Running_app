@@ -1,0 +1,5 @@
+# credentials storing
+.env
+
+# local venv
+venv_app/
