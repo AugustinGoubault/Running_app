@@ -84,15 +84,17 @@ else:
 
         time_delta = pd.to_timedelta(plot_data_week['moving_time'].iloc[-1]) - pd.to_timedelta(plot_data_week['moving_time'].iloc[-2])
         time_diff = str(abs(time_delta)).split(" ")[2:][0] if time_delta > pd.Timedelta(0) else "-"+str(abs(time_delta)).split(" ")[2:][0]
+        try:
+            time_value = str(plot_data_week['moving_time'].iloc[-1]).split(" ")[2:][0]
+        except:
+            time_value = "00:00:00"
         cols_init[3].metric(
             label="**Moving time**",
-            value=str(plot_data_week['moving_time'].iloc[-1]).split(" ")[2:][0],
+            value=time_value,
             delta=time_diff,
             delta_color="inverse" if time_delta > pd.Timedelta(0) else "normal",
             
         )
-
-        cols_init[3].write()
 
 
         # Different plots for the selected activity type
