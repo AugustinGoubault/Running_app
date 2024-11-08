@@ -1,5 +1,6 @@
 import os
 from environs import Env
+import streamlit as st
 
 
 def _load_env_variables() -> dict:
@@ -8,9 +9,12 @@ def _load_env_variables() -> dict:
     env.read_env()
 
     # Get environment variables from .env file
-    CLIENT_ID = os.environ.get('CLIENT_ID')
-    CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
-    REFRESH_TOKEN = os.environ.get('REFRESH_TOKEN')
+    # CLIENT_ID = os.environ.get('CLIENT_ID')
+    # CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+    # REFRESH_TOKEN = os.environ.get('REFRESH_TOKEN')
+    CLIENT_ID = st.secrets["CLIENT_ID"]
+    CLIENT_SECRET = st.secrets["CLIENT_SECRET"]
+    REFRESH_TOKEN = st.secrets["REFRESH_TOKEN"]
 
     env_variables = {
         'CLIENT_ID': CLIENT_ID,
