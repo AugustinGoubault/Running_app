@@ -3,3 +3,5 @@
 
 # local venv
 venv_app/
+
+.streamlit/
