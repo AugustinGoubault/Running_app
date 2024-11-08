@@ -26,6 +26,6 @@ def get_acces_token(code:str):
     'grant_type': "authorization_code",
     'f': 'json'
     }
-    res = requests.post(endpoints.token_endpoint, data=payload, verify=False)
+    res = requests.post(endpoints.token_endpoint, data=payload, verify=True)
     access_token = res.json()['access_token']
     return access_token
